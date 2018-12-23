@@ -4,7 +4,6 @@
   "description": "TODO Management",
   "main": "index.js",
   "scripts": {
-    "precommit": "lint-staged",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
 "husky": {
