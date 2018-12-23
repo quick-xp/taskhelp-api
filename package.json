@@ -1,0 +1,11 @@
+{
+  "name": "taskhelp",
+  "version": "1.0.0",
+  "description": "TODO Management",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "r.nishio",
+  "license": "ISC"
+}
