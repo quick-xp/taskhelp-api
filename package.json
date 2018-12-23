@@ -4,6 +4,7 @@
   "description": "TODO Management",
   "main": "index.js",
   "scripts": {
+    "start": "webpack --config webpack.config.dev.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "husky": {
@@ -14,6 +15,10 @@
   "lint-staged": {
     "*.js": [
       "prettier-eslint --write",
+      "git add"
+    ],
+    "*.ts": [
+      "tslint --fix",
       "git add"
     ]
   },
@@ -35,6 +40,8 @@
     "prettier-eslint": "^8.8.2",
     "prettier-eslint-cli": "^4.7.1",
     "ts-loader": "^5.3.2",
+    "tslint-config-prettier": "^1.17.0",
+    "tslint-config-standard": "^8.0.1",
     "tslint-plugin-prettier": "^2.0.1",
     "typescript": "^3.2.2",
     "webpack": "^4.28.2",
