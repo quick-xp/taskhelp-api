@@ -4,12 +4,28 @@
   "description": "TODO Management",
   "main": "index.js",
   "scripts": {
+    "precommit": "lint-staged",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+"husky": {
+   "hooks": {
+     "pre-commit": "lint-staged"
+   }
+ },
+ "lint-staged": {
+   "*.js": ["eslint --fix", "git add"]
+ },
   "author": "r.nishio",
   "license": "ISC",
   "dependencies": {
     "moment": "^2.23.0",
     "prettier": "^1.15.3"
+  },
+  "devDependencies": {
+    "eslint": "^5.11.0",
+    "husky": "^1.2.1",
+    "lint-staged": "^8.1.0",
+    "prettier-eslint": "^8.8.2",
+    "prettier-eslint-cli": "^4.7.1"
   }
 }
