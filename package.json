@@ -9,6 +9,7 @@
   "author": "r.nishio",
   "license": "ISC",
   "dependencies": {
-    "moment": "^2.23.0"
+    "moment": "^2.23.0",
+    "prettier": "^1.15.3"
   }
 }
