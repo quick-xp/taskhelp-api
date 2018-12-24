@@ -28,6 +28,7 @@
   "author": "r.nishio",
   "license": "ISC",
   "dependencies": {
+    "db-migrate": "^0.11.4",
     "express": "^4.16.4",
     "moment": "^2.23.0",
     "prettier": "^1.15.3",
