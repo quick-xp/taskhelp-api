@@ -4,7 +4,6 @@ import * as TaskModel from './domain/task'
 const app = express()
 
 app.get('/', (req: express.Request, res: express.Response) => {
-  let hoge = new TaskModel.Task("test", "test")
   return res.send('Hello Node')
 })
 
