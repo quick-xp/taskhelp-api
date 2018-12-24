@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack --config webpack.config.dev.js",
+    "dev": "NODE_ENV=development nodemon --config ./nodemon.json",
     "tsc": ".\\node_modules\\.bin\\tsc",
     "build": ".\\node_modules\\.bin\\tsc src/**/*.ts --outDir dist/ts",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -27,7 +28,6 @@
   "author": "r.nishio",
   "license": "ISC",
   "dependencies": {
-    "@types/express": "^4.16.0",
     "express": "^4.16.4",
     "moment": "^2.23.0",
     "prettier": "^1.15.3",
@@ -36,6 +36,7 @@
     "webpack-cli": "^3.1.2"
   },
   "devDependencies": {
+    "@types/express": "^4.16.0",
     "eslint": "^5.11.0",
     "husky": "^1.2.1",
     "lint-staged": "^8.1.0",
@@ -43,6 +44,7 @@
     "prettier-eslint": "^8.8.2",
     "prettier-eslint-cli": "^4.7.1",
     "ts-loader": "^5.3.2",
+    "ts-node": "^7.0.1",
     "tslint-config-prettier": "^1.17.0",
     "tslint-config-standard": "^8.0.1",
     "tslint-plugin-prettier": "^2.0.1",
