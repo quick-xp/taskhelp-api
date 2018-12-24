@@ -3,11 +3,11 @@ class Task {
   private _title: string
   private _description: Text
 
-  get title() {
+  getTitle() {
     return this._title
   }
 
-  get description() {
+  getDescription() {
     return this._description
   }
 
