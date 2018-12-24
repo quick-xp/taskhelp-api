@@ -11,9 +11,9 @@ class Task {
     return this._description
   }
 
-  constructor(id: number = null, title: string, description: Text) {
-    this._id = id
-    this._title = title
-    this._description = description
-  }
+  //constructor(id: number = null, title: string, description: Text) {
+    //this._id = id
+    //this._title = title
+    //this._description = description
+  //}
 }

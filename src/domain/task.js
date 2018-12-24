@@ -1,9 +1,5 @@
 var Task = /** @class */ (function () {
-    function Task(id, title, description) {
-        if (id === void 0) { id = null; }
-        this._id = id;
-        this._title = title;
-        this._description = description;
+    function Task() {
     }
     Task.prototype.getTitle = function () {
         return this._title;
