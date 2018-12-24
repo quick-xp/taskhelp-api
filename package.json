@@ -6,6 +6,7 @@
   "scripts": {
     "start": "webpack --config webpack.config.dev.js",
     "tsc": ".\\node_modules\\.bin\\tsc",
+    "build": ".\\node_modules\\.bin\\tsc src/**/*.ts --outDir dist/ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "husky": {
