@@ -1,8 +1,8 @@
 {
   "dev": {
-    "host": "localhost",
+    "host": {"ENV": "DB_HOST"},
     "user": { "ENV" : "DB_USER" },
-    "password" : { "ENV" : "DB_PASS" },
+    "password" : { "ENV" : "DB_PASSWORD" },
     "database": "taskhelp_development",
     "driver": "mysql",
     "multipleStatements": true
