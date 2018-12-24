@@ -1,5 +1,4 @@
 import express from "express"
-import * as TaskModel from './domain/task'
 
 const app = express()
 
