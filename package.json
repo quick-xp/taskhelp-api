@@ -32,6 +32,7 @@
     "db-migrate-mysql": "^1.1.10",
     "express": "^4.16.4",
     "moment": "^2.23.0",
+    "mysql": "^2.16.0",
     "prettier": "^1.15.3",
     "tslint": "^5.12.0",
     "tslint-loader": "^3.5.4",
