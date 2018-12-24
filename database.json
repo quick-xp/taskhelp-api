@@ -6,5 +6,13 @@
     "database": "taskhelp_development",
     "driver": "mysql",
     "multipleStatements": true
+  },
+  "test": {
+    "host": {"ENV": "DB_HOST"},
+    "user": { "ENV" : "DB_USER" },
+    "password" : { "ENV" : "DB_PASSWORD" },
+    "database": "taskhelp_test",
+    "driver": "mysql",
+    "multipleStatements": true
   }
 }
