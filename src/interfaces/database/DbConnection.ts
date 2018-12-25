@@ -1,11 +1,12 @@
 import mysql from 'mysql'
 import app from '../../server'
 
-let config = {}
-
-app.configure('development', () => {
-  config = require('../../../database.json').dev
-})
+// let env = app.get('env')
+let config
+// if (env === 'development') {
+config = require('../../../database.json') || {}
+console.log(config)
+// }
 
 let pool = mysql.createPool({
   connectionLimit: 10,
@@ -14,3 +15,5 @@ let pool = mysql.createPool({
   password: config.password,
   database: config.database
 })
+
+export default pool
