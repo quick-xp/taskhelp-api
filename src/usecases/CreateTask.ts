@@ -2,9 +2,9 @@ import { Task } from '../domain/models/Task'
 import pool from '../interfaces/database/DbConnection'
 
 export class CreateTask {
-  private _taskRepository
+  private _taskRepository: any
 
-  constructor(taskRepository) {
+  constructor(taskRepository: any) {
     this._taskRepository = taskRepository
   }
 

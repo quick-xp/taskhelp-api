@@ -1,4 +1,4 @@
-const _serializeSingleTask = task => {
+const _serializeSingleTask = (task: any) => {
   return {
     id: task.getId,
     title: task.getTitle,
@@ -7,7 +7,7 @@ const _serializeSingleTask = task => {
 }
 
 export class TaskSerializer {
-  serialize(data) {
+  serialize(data: any) {
     if (!data) {
       throw new Error('expect data to be not undefined nor null')
     }

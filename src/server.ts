@@ -1,11 +1,15 @@
 import express from 'express'
-import { CreateTask } from './usecases/CreateTask'
+import router from './infrastructure/router'
+import bodyParser = require('body-parser')
 
 const app = express()
 
-app.get('/', (req: express.Request, res: express.Response) => {
-  return res.send('Hello Node')
-})
+// bodyがundefinedにならないように
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
+// Route設定
+app.use('/api', router)
 
 app.listen(3000, () => {
   console.log('listening on port 3000')
