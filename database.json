@@ -1,5 +1,5 @@
 {
-  "dev": {
+  "development": {
     "host": { "ENV": "DB_HOST_DEV"},
     "user": { "ENV" : "DB_USER_DEV" },
     "password" : { "ENV" : "DB_PASSWORD_DEV" },
@@ -8,9 +8,9 @@
     "multipleStatements": true
   },
   "test": {
-    "host": { "ENV": "DB_HOST" },
-    "user": { "ENV" : "DB_USER" },
-    "password" : { "ENV" : "DB_PASSWORD" },
+    "host": { "ENV": "DB_HOST_TEST" },
+    "user": { "ENV" : "DB_USER_TEST" },
+    "password" : { "ENV" : "DB_PASSWORD_TEST" },
     "database": { "ENV": "DB_NAME_TEST" },
     "driver": "mysql",
     "multipleStatements": true
