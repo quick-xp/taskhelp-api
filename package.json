@@ -28,6 +28,7 @@
   "author": "r.nishio",
   "license": "ISC",
   "dependencies": {
+    "@types/dotenv": "^6.1.0",
     "@types/mysql": "^2.15.5",
     "db-migrate": "^0.11.4",
     "db-migrate-mysql": "^1.1.10",
