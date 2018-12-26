@@ -1,17 +1,17 @@
 {
   "dev": {
-    "host": {"ENV": "DB_HOST"},
-    "user": { "ENV" : "DB_USER" },
-    "password" : { "ENV" : "DB_PASSWORD" },
-    "database": "taskhelp_development",
+    "host": { "ENV": "DB_HOST_DEV"},
+    "user": { "ENV" : "DB_USER_DEV" },
+    "password" : { "ENV" : "DB_PASSWORD_DEV" },
+    "database": { "ENV" : "DB_NAME_DEV" },
     "driver": "mysql",
     "multipleStatements": true
   },
   "test": {
-    "host": {"ENV": "DB_HOST"},
+    "host": { "ENV": "DB_HOST" },
     "user": { "ENV" : "DB_USER" },
     "password" : { "ENV" : "DB_PASSWORD" },
-    "database": "taskhelp_test",
+    "database": { "ENV": "DB_NAME_TEST" },
     "driver": "mysql",
     "multipleStatements": true
   }
