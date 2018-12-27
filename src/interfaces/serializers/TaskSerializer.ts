@@ -1,8 +1,8 @@
 const _serializeSingleTask = (task: any) => {
   return {
-    id: task.getId,
-    title: task.getTitle,
-    description: task.getDescription
+    id: task.getId(),
+    title: task.getTitle(),
+    description: task.getDescription()
   }
 }
 
@@ -14,6 +14,6 @@ export class TaskSerializer {
     if (Array.isArray(data)) {
       return data.map(_serializeSingleTask)
     }
-    return _serializeSingleTask
+    return _serializeSingleTask(data)
   }
 }

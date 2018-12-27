@@ -11,10 +11,11 @@ export class TasksController {
     this._taskRepository = new TaskRepository()
   }
 
-  createTask(request: any, response: any) {
+  async createTask(request: any, response: any) {
     // const { title, description } = request.payload
     const useCase = new CreateTask(this._taskRepository)
-    let result = useCase.execute('test', 'hoge')
+    let result = await useCase.execute('test', 'hoge')
+    console.log(result)
     return this._taskSerializer.serialize(result)
   }
 }

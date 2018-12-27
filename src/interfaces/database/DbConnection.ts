@@ -1,5 +1,6 @@
 import mysql from 'mysql'
 import dotenv from 'dotenv'
+import util from 'util'
 // import app from '../../server'
 
 // let env = app.get('env')
@@ -15,6 +16,8 @@ pool = mysql.createPool({
   password: process.env.DB_PASSWORD_DEV,
   database: process.env.DB_NAME_DEV
 })
+
+pool.query = util.promisify(pool.query)
 // } else if (env === 'test') {
 //  pool = mysql.createPool({
 //    connectionLimit: 5,

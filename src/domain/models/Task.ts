@@ -3,6 +3,14 @@ export class Task {
   private title: string
   private description: string
 
+  setId(id: number) {
+    this.id = id
+  }
+
+  getId() {
+    return this.id
+  }
+
   getTitle() {
     return this.title
   }
