@@ -17,7 +17,7 @@ exports.setup = function(options, seedLink) {
 exports.up = function(db) {
   return db.createTable('tasks', {
     id: { type: 'int', primaryKey: true, autoIncrement: true },
-    name: 'string',
+    title: 'string',
     description: 'string'
   })
 }

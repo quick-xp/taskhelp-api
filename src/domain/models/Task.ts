@@ -1,18 +1,18 @@
 export class Task {
-  private _id: number
-  private _title: string
-  private _description: string
+  private id: number
+  private title: string
+  private description: string
 
   getTitle() {
-    return this._title
+    return this.title
   }
 
   getDescription() {
-    return this._description
+    return this.description
   }
 
   constructor(title: string, description: string) {
-    this._title = title
-    this._description = description
+    this.title = title
+    this.description = description
   }
 }

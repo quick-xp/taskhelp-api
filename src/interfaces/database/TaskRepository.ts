@@ -12,4 +12,16 @@ export class TaskRepository {
       }
     )
   }
+
+  persist(task: Task) {
+    let r = pool.query(
+      'insert into tasks SET ?',
+      task,
+      (error: any, result: any) => {
+        if (error) throw error
+        return task
+      }
+    )
+    return r
+  }
 }

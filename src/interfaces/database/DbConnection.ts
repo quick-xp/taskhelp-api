@@ -11,7 +11,7 @@ dotenv.config()
 pool = mysql.createPool({
   connectionLimit: 5,
   host: process.env.DB_HOST_DEV,
-  user: process.env.DB_HOST_USER,
+  user: process.env.DB_USER_DEV,
   password: process.env.DB_PASSWORD_DEV,
   database: process.env.DB_NAME_DEV
 })
@@ -24,5 +24,10 @@ pool = mysql.createPool({
 //    database: env.DB_NAME_TEST
 //  })
 // }
+
+// pool event
+pool.on('connection', (connection: any) => {
+  console.log('mysql connection create')
+})
 
 export default pool

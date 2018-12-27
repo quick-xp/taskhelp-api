@@ -3,7 +3,7 @@ import { CreateTask } from '../../usecases/CreateTask'
 import { TaskRepository } from '../database/TaskRepository'
 
 export class TasksController {
-  private _taskSerializer: any
+  private _taskSerializer: TaskSerializer
   private _taskRepository: any
 
   constructor() {
@@ -14,8 +14,7 @@ export class TasksController {
   createTask(request: any, response: any) {
     // const { title, description } = request.payload
     const useCase = new CreateTask(this._taskRepository)
-    return useCase
-      .execute('test', 'hoge')
-      .then((task: any) => this._taskSerializer.serializer(task))
+    let result = useCase.execute('test', 'hoge')
+    return this._taskSerializer.serialize(result)
   }
 }
