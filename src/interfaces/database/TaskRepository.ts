@@ -1,8 +1,9 @@
 import { Task } from '../../domain/models/Task'
+import { ITaskRepository } from '../../application/repositories/ITaskRepository'
 import pool from './DbConnection'
 
-export class TaskRepository {
-  find(id: number) {
+export class TaskRepository extends ITaskRepository {
+  find(id: number): any {
     pool.query(
       'select * from tasks where id = 1',
       (error: any, results: any, fields: any) => {
@@ -12,7 +13,7 @@ export class TaskRepository {
     )
   }
 
-  async persist(task: Task) {
+  async persist(task: Task): Promise<Task> {
     let result = await pool.query('insert into tasks SET ?', task)
     task.setId(result.insertId)
     return task
