@@ -1,5 +1,5 @@
 import { TaskSerializer } from '../serializers/TaskSerializer'
-import { CreateTask } from '../../usecases/CreateTask'
+import { CreateTask } from '../../application/usecases/CreateTask'
 import { TaskRepository } from '../database/TaskRepository'
 
 export class TasksController {

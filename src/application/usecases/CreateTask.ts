@@ -1,6 +1,6 @@
-import { Task } from '../domain/models/Task'
-import pool from '../interfaces/database/DbConnection'
-import { TaskRepository } from '../interfaces/database/TaskRepository'
+import { Task } from '../../domain/models/Task'
+import pool from '../../interfaces/database/DbConnection'
+import { TaskRepository } from '../../interfaces/database/TaskRepository'
 
 export class CreateTask {
   private _taskRepository: TaskRepository

@@ -1,6 +1,5 @@
 import { Task } from '../../domain/models/Task'
 import pool from './DbConnection'
-// let pool = require('./DbConnection')
 
 export class TaskRepository {
   find(id: number) {
@@ -14,10 +13,6 @@ export class TaskRepository {
   }
 
   async persist(task: Task) {
-    // pool.query('insert into tasks SET ?', task, (error: any, result: any) => {
-    //  if (error) throw error
-    //  return task
-    // })
     let result = await pool.query('insert into tasks SET ?', task)
     task.setId(result.insertId)
     return task
