@@ -3,6 +3,7 @@ import { CreateTask } from '../../application/usecases/CreateTask'
 import { ListTasks } from '../../application/usecases/ListTasks'
 import { TaskRepository } from '../database/TaskRepository'
 import { GetTask } from '../../application/usecases/getTask'
+import { UpdateTask } from '../../application/usecases/UpdateTask'
 
 export class TasksController {
   private taskSerializer: TaskSerializer
@@ -30,6 +31,14 @@ export class TasksController {
     const { title, description } = req.body
     const useCase = new CreateTask(this.taskRepository)
     let result = await useCase.execute(title, description)
+    return this.taskSerializer.serialize(result)
+  }
+
+  async updateTask(req: any, res: any) {
+    const id = req.params.id
+    const { title, description } = req.body
+    const useCase = new UpdateTask(this.taskRepository)
+    let result = await useCase.execute(id, title, description)
     return this.taskSerializer.serialize(result)
   }
 }

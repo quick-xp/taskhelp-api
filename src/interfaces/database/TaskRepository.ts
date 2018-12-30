@@ -18,12 +18,7 @@ export class TaskRepository extends ITaskRepository {
       'select * from tasks where id = ? limit 1',
       id
     )
-    let results = []
-    results = queryResults.map((m: any) => {
-      return this.convertModel(m)
-    })
-
-    return results
+    return this.convertModel(queryResults[0])
   }
 
   async findAll(): Promise<Array<Task>> {
@@ -39,6 +34,14 @@ export class TaskRepository extends ITaskRepository {
   async persist(task: Task): Promise<Task> {
     let result = await pool.query('insert into tasks SET ?', task)
     task.setId(result.insertId)
+    return task
+  }
+
+  async merge(task: Task): Promise<Task> {
+    let result = await pool.query(
+      'update tasks set title = ?, description = ? where id = ?',
+      [task.getTitle(), task.getDescription(), task.getId()]
+    )
     return task
   }
 }

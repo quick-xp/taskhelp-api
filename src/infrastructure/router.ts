@@ -22,4 +22,12 @@ router.post('/tasks', async (req: express.Request, res: express.Response) => {
   res.send(result)
 })
 
+router.patch(
+  '/tasks/:id',
+  async (req: express.Request, res: express.Response) => {
+    let result = await tasksController.updateTask(req, res)
+    res.send(result)
+  }
+)
+
 export default router
