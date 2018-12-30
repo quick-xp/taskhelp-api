@@ -13,14 +13,17 @@ export class TaskRepository extends ITaskRepository {
     return task
   }
 
-  find(id: number): any {
-    pool.query(
-      'select * from tasks where id = 1',
-      (error: any, results: any, fields: any) => {
-        if (error) throw error
-        return results[0]
-      }
+  async find(id: number): Promise<Task> {
+    let queryResults = await pool.query(
+      'select * from tasks where id = ? limit 1',
+      id
     )
+    let results = []
+    results = queryResults.map((m: any) => {
+      return this.convertModel(m)
+    })
+
+    return results
   }
 
   async findAll(): Promise<Array<Task>> {

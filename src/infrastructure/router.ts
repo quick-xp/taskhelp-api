@@ -9,6 +9,14 @@ router.get('/tasks', async (req: express.Request, res: express.Response) => {
   res.send(results)
 })
 
+router.get(
+  '/tasks/:id',
+  async (req: express.Request, res: express.Response) => {
+    let result = await tasksController.findTask(req, res)
+    res.send(result)
+  }
+)
+
 router.post('/tasks', async (req: express.Request, res: express.Response) => {
   let result = await tasksController.createTask(req, res)
   res.send(result)
