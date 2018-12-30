@@ -30,4 +30,12 @@ router.patch(
   }
 )
 
+router.delete(
+  '/tasks/:id',
+  async (req: express.Request, res: express.Response) => {
+    let result = await tasksController.deleteTask(req, res)
+    res.send(result)
+  }
+)
+
 export default router

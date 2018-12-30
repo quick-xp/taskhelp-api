@@ -44,4 +44,12 @@ export class TaskRepository extends ITaskRepository {
     )
     return task
   }
+
+  async delete(task: Task): Promise<Task> {
+    let queryResults = await pool.query(
+      'delete from tasks where id = ?',
+      task.getId()
+    )
+    return this.convertModel(task)
+  }
 }
