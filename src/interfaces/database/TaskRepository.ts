@@ -3,6 +3,16 @@ import { ITaskRepository } from '../../application/repositories/ITaskRepository'
 import pool from './DbConnection'
 
 export class TaskRepository extends ITaskRepository {
+  private convertModel(r: any) {
+    let task = new Task()
+
+    task.setId(r.id)
+    task.setTitle(r.title)
+    task.setDescription(r.description)
+
+    return task
+  }
+
   find(id: number): any {
     pool.query(
       'select * from tasks where id = 1',
@@ -18,13 +28,7 @@ export class TaskRepository extends ITaskRepository {
 
     let results = []
     results = queryResults.map((m: any) => {
-      let task = new Task()
-
-      task.setId(m.id)
-      task.setTitle(m.title)
-      task.setDescription(m.description)
-
-      return task
+      return this.convertModel(m)
     })
 
     return results
