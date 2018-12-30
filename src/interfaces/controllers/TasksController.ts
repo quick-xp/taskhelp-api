@@ -3,19 +3,19 @@ import { CreateTask } from '../../application/usecases/CreateTask'
 import { TaskRepository } from '../database/TaskRepository'
 
 export class TasksController {
-  private _taskSerializer: TaskSerializer
-  private _taskRepository: any
+  private taskSerializer: TaskSerializer
+  private taskRepository: any
 
   constructor() {
-    this._taskSerializer = new TaskSerializer()
-    this._taskRepository = new TaskRepository()
+    this.taskSerializer = new TaskSerializer()
+    this.taskRepository = new TaskRepository()
   }
 
   async createTask(request: any, response: any) {
-    // const { title, description } = request.payload
-    const useCase = new CreateTask(this._taskRepository)
-    let result = await useCase.execute('test', 'hoge')
+    const { title, description } = request.body
+    const useCase = new CreateTask(this.taskRepository)
+    let result = await useCase.execute(title, description)
     console.log(result)
-    return this._taskSerializer.serialize(result)
+    return this.taskSerializer.serialize(result)
   }
 }

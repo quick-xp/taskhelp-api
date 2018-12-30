@@ -1,4 +1,6 @@
-const _serializeSingleTask = (task: any) => {
+import { Task } from '../../domain/models/Task'
+
+const _serializeSingleTask = (task: Task) => {
   return {
     id: task.getId(),
     title: task.getTitle(),
