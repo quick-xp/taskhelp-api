@@ -13,6 +13,23 @@ export class TaskRepository extends ITaskRepository {
     )
   }
 
+  async findAll(): Promise<Array<Task>> {
+    let queryResults = await pool.query('select * from tasks')
+
+    let results = []
+    results = queryResults.map((m: any) => {
+      let task = new Task()
+
+      task.setId(m.id)
+      task.setTitle(m.title)
+      task.setDescription(m.description)
+
+      return task
+    })
+
+    return results
+  }
+
   async persist(task: Task): Promise<Task> {
     let result = await pool.query('insert into tasks SET ?', task)
     task.setId(result.insertId)
