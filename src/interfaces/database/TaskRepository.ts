@@ -25,7 +25,6 @@ export class TaskRepository extends ITaskRepository {
 
   async findAll(): Promise<Array<Task>> {
     let queryResults = await pool.query('select * from tasks')
-
     let results = []
     results = queryResults.map((m: any) => {
       return this.convertModel(m)

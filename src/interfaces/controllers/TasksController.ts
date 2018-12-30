@@ -15,7 +15,6 @@ export class TasksController {
   async findAllTasks(req: any, res: any) {
     const useCase = new ListTasks(this.taskRepository)
     let results = await useCase.execute()
-    console.log(results)
     return this.taskSerializer.serialize(results)
   }
 
@@ -23,7 +22,6 @@ export class TasksController {
     const { title, description } = req.body
     const useCase = new CreateTask(this.taskRepository)
     let result = await useCase.execute(title, description)
-    console.log(result)
     return this.taskSerializer.serialize(result)
   }
 }

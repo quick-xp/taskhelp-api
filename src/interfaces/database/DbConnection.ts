@@ -17,7 +17,25 @@ pool = mysql.createPool({
   database: process.env.DB_NAME_DEV
 })
 
+pool.getConnection((error: any, connection: any) => {
+  if (error) {
+    if (error.code === 'PROTOCOL_CONNECTION_LOST') {
+      console.error('Database connection was closed.')
+    }
+    if (error.code === 'ER_CON_COUNT_ERROR') {
+      console.error('Database has too many connections.')
+    }
+    if (error.code === 'ECONNREFUSED') {
+      console.error('Database connection was refused.')
+    }
+  }
+
+  if (connection) connection.release()
+
+  return
+})
 pool.query = util.promisify(pool.query)
+
 // } else if (env === 'test') {
 //  pool = mysql.createPool({
 //    connectionLimit: 5,
@@ -31,6 +49,10 @@ pool.query = util.promisify(pool.query)
 // pool event
 pool.on('connection', (connection: any) => {
   console.log('mysql connection create')
+})
+
+pool.on('release', (connection: any) => {
+  console.log('Connection %d released', connection.threadId)
 })
 
 export default pool
