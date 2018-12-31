@@ -37,7 +37,7 @@ export class Task {
 
   getCreatedAt(): string {
     if (this._createdAt) {
-      return this._createdAt.format('YYYY-MM-DD hh:mm:ss')
+      return this._createdAt.tz('Asia/Tokyo').format('YYYY-MM-DD hh:mm:ss')
     }
     return null
   }
@@ -52,7 +52,7 @@ export class Task {
 
   getUpdatedAt(): string {
     if (this._updatedAt) {
-      return this._updatedAt.format('YYYY-MM-DD hh:mm:ss')
+      return this._updatedAt.tz('Asia/Tokyo').format('YYYY-MM-DD hh:mm:ss')
     }
     return null
   }

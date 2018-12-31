@@ -1,6 +1,7 @@
 import { Task } from '../../domain/models/Task'
 import { ITaskRepository } from '../../application/repositories/ITaskRepository'
 import { IDBConnection } from './IDBConnection'
+import moment from 'moment-timezone'
 
 export class TaskRepository extends ITaskRepository {
   private connection: any
@@ -16,8 +17,8 @@ export class TaskRepository extends ITaskRepository {
     task.id = r.id
     task.title = r.title
     task.description = r.description
-    task.createdAt = r.created_at
-    task.updatedAt = r.updated_at
+    task.createdAt = moment(r.created_at)
+    task.updatedAt = moment(r.updated_at)
 
     return task
   }
@@ -41,6 +42,7 @@ export class TaskRepository extends ITaskRepository {
   }
 
   async persist(task: Task): Promise<Task> {
+    console.log(task.getCreatedAt())
     let result = await this.connection.execute(
       'insert into tasks (title, description, created_at, updated_at) values (?, ?, ?, ?)',
       [task.title, task.description, task.getCreatedAt(), task.getUpdatedAt()]
