@@ -78,6 +78,12 @@
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@types/mime/-/mime-2.0.0.tgz#5a7306e367c539b9f6543499de8dd519fac37a8b"
 
+"@types/moment-timezone@^0.5.9":
+  version "0.5.9"
+  resolved "https://registry.yarnpkg.com/@types/moment-timezone/-/moment-timezone-0.5.9.tgz#1a34ef6ba2e4578b9ca399ed5eec57525ad1d4a7"
+  dependencies:
+    moment ">=2.14.0"
+
 "@types/mysql@^2.15.5":
   version "2.15.5"
   resolved "https://registry.yarnpkg.com/@types/mysql/-/mysql-2.15.5.tgz#6d75afb5cc018c9d66b2f37a046924e397f85430"
@@ -2334,7 +2340,7 @@ moment-timezone@^0.5.23:
   dependencies:
     moment ">= 2.9.0"
 
-"moment@>= 2.9.0", moment@^2.11.2, moment@^2.23.0:
+"moment@>= 2.9.0", moment@>=2.14.0, moment@^2.11.2, moment@^2.23.0:
   version "2.23.0"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.23.0.tgz#759ea491ac97d54bac5ad776996e2a58cc1bc225"
 
