@@ -7,7 +7,7 @@
     "start": "webpack --config webpack.config.dev.js",
     "dev": "NODE_ENV=development nodemon --config ./nodemon.json",
     "tsc": ".\\node_modules\\.bin\\tsc",
-    "build": ".\\node_modules\\.bin\\tsc src/**/*.ts --outDir dist/ts",
+    "build": "npm run tsc src/**/*.ts --outDir dist/ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "husky": {

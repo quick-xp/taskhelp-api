@@ -4,7 +4,6 @@ import util from 'util'
 import { IDBConnection } from '../interfaces/database/IDBConnection'
 
 export class MysqlConnection extends IDBConnection {
-  private config: any
   private pool: any
 
   constructor() {
