@@ -35,6 +35,7 @@
     "db-migrate-mysql": "^1.1.10",
     "express": "^4.16.4",
     "moment": "^2.23.0",
+    "moment-timezone": "^0.5.23",
     "mysql": "^2.16.0",
     "prettier": "^1.15.3",
     "tslint": "^5.12.0",
