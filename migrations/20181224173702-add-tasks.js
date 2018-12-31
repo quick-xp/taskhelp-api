@@ -18,7 +18,9 @@ exports.up = function(db) {
   return db.createTable('tasks', {
     id: { type: 'int', primaryKey: true, autoIncrement: true },
     title: 'string',
-    description: 'string'
+    description: 'string',
+    created_at: 'datetime',
+    updated_at: 'datetime'
   })
 }
 
