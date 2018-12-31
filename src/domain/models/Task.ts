@@ -1,7 +1,11 @@
+import moment from 'moment'
+
 export class Task {
   private _id: number
   private _title: string
   private _description: string
+  private _createdAt: moment.Moment
+  private _updatedAt: moment.Moment
 
   get id(): number {
     return this._id
@@ -25,6 +29,36 @@ export class Task {
 
   set description(description: string) {
     this._description = description
+  }
+
+  get createdAt(): moment.Moment {
+    return this._createdAt
+  }
+
+  getCreatedAt(): string {
+    if (this._createdAt) {
+      return this._createdAt.format('YYYY-MM-DD hh:mm:ss')
+    }
+    return null
+  }
+
+  set createdAt(t: moment.Moment) {
+    this._createdAt = t
+  }
+
+  get updatedAt(): moment.Moment {
+    return this._updatedAt
+  }
+
+  getUpdatedAt(): string {
+    if (this._updatedAt) {
+      return this._updatedAt.format('YYYY-MM-DD hh:mm:ss')
+    }
+    return null
+  }
+
+  set updatedAt(t: moment.Moment) {
+    this._updatedAt = t
   }
 
   constructor(title: string = null, description: string = null) {

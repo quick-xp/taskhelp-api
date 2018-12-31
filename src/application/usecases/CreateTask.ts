@@ -1,5 +1,6 @@
 import { Task } from '../../domain/models/Task'
 import { ITaskRepository } from '../repositories/ITaskRepository'
+import moment from 'moment'
 
 export class CreateTask {
   private taskRepository: ITaskRepository
@@ -10,6 +11,8 @@ export class CreateTask {
 
   execute(title: string, description: string) {
     let task = new Task(title, description)
+    task.createdAt = moment()
+    task.updatedAt = moment()
     return this.taskRepository.persist(task)
   }
 }

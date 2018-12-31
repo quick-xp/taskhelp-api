@@ -1,5 +1,6 @@
 import { Task } from '../../domain/models/Task'
 import { ITaskRepository } from '../repositories/ITaskRepository'
+import moment from 'moment'
 
 export class UpdateTask {
   private taskRepository: ITaskRepository
@@ -12,6 +13,7 @@ export class UpdateTask {
     let task = await this.taskRepository.find(id)
     task.title = title
     task.description = description
+    task.updatedAt = moment()
     return this.taskRepository.merge(task)
   }
 }

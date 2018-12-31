@@ -16,6 +16,8 @@ export class TaskRepository extends ITaskRepository {
     task.id = r.id
     task.title = r.title
     task.description = r.description
+    task.createdAt = r.created_at
+    task.updatedAt = r.updated_at
 
     return task
   }
@@ -40,8 +42,8 @@ export class TaskRepository extends ITaskRepository {
 
   async persist(task: Task): Promise<Task> {
     let result = await this.connection.execute(
-      'insert into tasks (title, description) values (?, ?)',
-      [task.title, task.description]
+      'insert into tasks (title, description, created_at, updated_at) values (?, ?, ?, ?)',
+      [task.title, task.description, task.getCreatedAt(), task.getUpdatedAt()]
     )
     task.id = result.insertId
     return task
@@ -49,8 +51,8 @@ export class TaskRepository extends ITaskRepository {
 
   async merge(task: Task): Promise<Task> {
     let result = await this.connection.execute(
-      'update tasks set title = ?, description = ? where id = ?',
-      [task.title, task.description, task.id]
+      'update tasks set title = ?, description = ?, updated_at = ? where id = ?',
+      [task.title, task.description, task.getUpdatedAt(), task.id]
     )
     return task
   }
