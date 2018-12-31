@@ -42,13 +42,6 @@ export class Task {
     return null
   }
 
-  getFormatCreatedAt(): string {
-    if (this._createdAt) {
-      return this._createdAt.format()
-    }
-    return null
-  }
-
   set createdAt(t: moment.Moment) {
     this._createdAt = t
   }
@@ -60,13 +53,6 @@ export class Task {
   getUTCUpdatedAt(): string {
     if (this._updatedAt) {
       return this._updatedAt.utc().format('YYYY-MM-DD HH:mm:ss')
-    }
-    return null
-  }
-
-  getFormatUpdatedAt(): string {
-    if (this._updatedAt) {
-      return this._updatedAt.format()
     }
     return null
   }
