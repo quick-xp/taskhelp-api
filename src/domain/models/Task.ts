@@ -35,9 +35,16 @@ export class Task {
     return this._createdAt
   }
 
-  getCreatedAt(): string {
+  getUTCCreatedAt(): string {
     if (this._createdAt) {
-      return this._createdAt.tz('Asia/Tokyo').format('YYYY-MM-DD hh:mm:ss')
+      return this._createdAt.utc().format('YYYY-MM-DD HH:mm:ss')
+    }
+    return null
+  }
+
+  getFormatCreatedAt(): string {
+    if (this._createdAt) {
+      return this._createdAt.format()
     }
     return null
   }
@@ -50,9 +57,16 @@ export class Task {
     return this._updatedAt
   }
 
-  getUpdatedAt(): string {
+  getUTCUpdatedAt(): string {
     if (this._updatedAt) {
-      return this._updatedAt.tz('Asia/Tokyo').format('YYYY-MM-DD hh:mm:ss')
+      return this._updatedAt.utc().format('YYYY-MM-DD HH:mm:ss')
+    }
+    return null
+  }
+
+  getFormatUpdatedAt(): string {
+    if (this._updatedAt) {
+      return this._updatedAt.format()
     }
     return null
   }

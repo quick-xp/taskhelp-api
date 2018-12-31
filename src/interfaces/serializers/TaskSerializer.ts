@@ -5,8 +5,8 @@ const _serializeSingleTask = (task: Task) => {
     id: task.id,
     title: task.title,
     description: task.description,
-    createdAt: task.getCreatedAt(),
-    updatedAt: task.getUpdatedAt()
+    createdAt: task.getFormatCreatedAt(),
+    updatedAt: task.getFormatUpdatedAt()
   }
 }
 
