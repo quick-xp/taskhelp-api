@@ -4,10 +4,11 @@
   "description": "TODO Management",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --config webpack.config.dev.js",
+    "start": "npm run serve",
+    "serve": "node dist/infrastructure/server.js",
     "dev": "NODE_ENV=development nodemon --config ./nodemon.json",
     "tsc": ".\\node_modules\\.bin\\tsc",
-    "build": ".\\node_modules\\.bin\\tsc src/**/*.ts --outDir dist/ts",
+    "build": ".\\node_modules\\.bin\\tsc -p tsconfig.json --outDir dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "husky": {
