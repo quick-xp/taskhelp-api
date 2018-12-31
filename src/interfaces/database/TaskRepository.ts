@@ -13,9 +13,9 @@ export class TaskRepository extends ITaskRepository {
   private convertModel(r: any) {
     let task = new Task()
 
-    task.setId(r.id)
-    task.setTitle(r.title)
-    task.setDescription(r.description)
+    task.id = r.id
+    task.title = r.title
+    task.description = r.description
 
     return task
   }
@@ -39,15 +39,18 @@ export class TaskRepository extends ITaskRepository {
   }
 
   async persist(task: Task): Promise<Task> {
-    let result = await this.connection.execute('insert into tasks SET ?', task)
-    task.setId(result.insertId)
+    let result = await this.connection.execute(
+      'insert into tasks (title, description) values (?, ?)',
+      [task.title, task.description]
+    )
+    task.id = result.insertId
     return task
   }
 
   async merge(task: Task): Promise<Task> {
     let result = await this.connection.execute(
       'update tasks set title = ?, description = ? where id = ?',
-      [task.getTitle(), task.getDescription(), task.getId()]
+      [task.title, task.description, task.id]
     )
     return task
   }
@@ -55,7 +58,7 @@ export class TaskRepository extends ITaskRepository {
   async delete(task: Task): Promise<Task> {
     let queryResults = await this.connection.execute(
       'delete from tasks where id = ?',
-      task.getId()
+      task.id
     )
     return this.convertModel(task)
   }

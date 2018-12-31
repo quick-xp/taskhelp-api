@@ -1,34 +1,34 @@
 export class Task {
-  private id: number
-  private title: string
-  private description: string
+  private _id: number
+  private _title: string
+  private _description: string
 
-  getId() {
-    return this.id
+  get id(): number {
+    return this._id
   }
 
-  setId(id: number) {
-    this.id = id
+  set id(id: number) {
+    this._id = id
   }
 
-  getTitle() {
-    return this.title
+  get title(): string {
+    return this._title
   }
 
-  setTitle(title: string) {
-    this.title = title
+  set title(title: string) {
+    this._title = title
   }
 
-  getDescription() {
-    return this.description
+  get description(): string {
+    return this._description
   }
 
-  setDescription(description: string) {
-    this.description = description
+  set description(description: string) {
+    this._description = description
   }
 
   constructor(title: string = null, description: string = null) {
-    this.title = title
-    this.description = description
+    this._title = title
+    this._description = description
   }
 }

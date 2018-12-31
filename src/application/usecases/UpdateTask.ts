@@ -10,8 +10,8 @@ export class UpdateTask {
 
   async execute(id: number, title: string, description: string) {
     let task = await this.taskRepository.find(id)
-    task.setTitle(title)
-    task.setDescription(description)
+    task.title = title
+    task.description = description
     return this.taskRepository.merge(task)
   }
 }

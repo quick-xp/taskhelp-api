@@ -2,9 +2,9 @@ import { Task } from '../../domain/models/Task'
 
 const _serializeSingleTask = (task: Task) => {
   return {
-    id: task.getId(),
-    title: task.getTitle(),
-    description: task.getDescription()
+    id: task.id,
+    title: task.title,
+    description: task.description
   }
 }
 
