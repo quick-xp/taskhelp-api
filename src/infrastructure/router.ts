@@ -1,7 +1,9 @@
 import express = require('express')
 import { TasksController } from '../interfaces/controllers/TasksController'
+import { MysqlConnection } from './MysqlConnection'
 
-const tasksController = new TasksController()
+const mysqlConnection = new MysqlConnection()
+const tasksController = new TasksController(mysqlConnection)
 let router = express.Router()
 
 router.get('/tasks', async (req: express.Request, res: express.Response) => {

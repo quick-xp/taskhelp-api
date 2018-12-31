@@ -1,8 +1,15 @@
 import { Task } from '../../domain/models/Task'
 import { ITaskRepository } from '../../application/repositories/ITaskRepository'
-import pool from './DbConnection'
+import { IDBConnection } from './IDBConnection'
 
 export class TaskRepository extends ITaskRepository {
+  private connection: any
+
+  constructor(connection: IDBConnection) {
+    super()
+    this.connection = connection
+  }
+
   private convertModel(r: any) {
     let task = new Task()
 
@@ -14,7 +21,7 @@ export class TaskRepository extends ITaskRepository {
   }
 
   async find(id: number): Promise<Task> {
-    let queryResults = await pool.query(
+    let queryResults = await this.connection.execute(
       'select * from tasks where id = ? limit 1',
       id
     )
@@ -22,7 +29,7 @@ export class TaskRepository extends ITaskRepository {
   }
 
   async findAll(): Promise<Array<Task>> {
-    let queryResults = await pool.query('select * from tasks')
+    let queryResults = await this.connection.execute('select * from tasks')
     let results = []
     results = queryResults.map((m: any) => {
       return this.convertModel(m)
@@ -32,13 +39,13 @@ export class TaskRepository extends ITaskRepository {
   }
 
   async persist(task: Task): Promise<Task> {
-    let result = await pool.query('insert into tasks SET ?', task)
+    let result = await this.connection.execute('insert into tasks SET ?', task)
     task.setId(result.insertId)
     return task
   }
 
   async merge(task: Task): Promise<Task> {
-    let result = await pool.query(
+    let result = await this.connection.execute(
       'update tasks set title = ?, description = ? where id = ?',
       [task.getTitle(), task.getDescription(), task.getId()]
     )
@@ -46,7 +53,7 @@ export class TaskRepository extends ITaskRepository {
   }
 
   async delete(task: Task): Promise<Task> {
-    let queryResults = await pool.query(
+    let queryResults = await this.connection.execute(
       'delete from tasks where id = ?',
       task.getId()
     )

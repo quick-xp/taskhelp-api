@@ -5,14 +5,15 @@ import { GetTask } from '../../application/usecases/getTask'
 import { CreateTask } from '../../application/usecases/CreateTask'
 import { UpdateTask } from '../../application/usecases/UpdateTask'
 import { DeleteTask } from '../../application/usecases/DeleteTask'
+import { IDBConnection } from '../database/IDBConnection'
 
 export class TasksController {
   private taskSerializer: TaskSerializer
   private taskRepository: TaskRepository
 
-  constructor() {
+  constructor(dbConnection: IDBConnection) {
     this.taskSerializer = new TaskSerializer()
-    this.taskRepository = new TaskRepository()
+    this.taskRepository = new TaskRepository(dbConnection)
   }
 
   async findTask(req: any, res: any) {
