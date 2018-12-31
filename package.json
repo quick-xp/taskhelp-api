@@ -55,8 +55,6 @@
     "tslint-config-prettier": "^1.17.0",
     "tslint-config-standard": "^8.0.1",
     "tslint-plugin-prettier": "^2.0.1",
-    "typescript": "^3.2.2",
-    "webpack": "^4.28.2",
-    "webpack-node-externals": "^1.7.2"
+    "typescript": "^3.2.2"
   }
 }
