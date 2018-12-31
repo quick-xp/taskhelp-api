@@ -8,7 +8,7 @@
     "serve": "node dist/infrastructure/server.js",
     "dev": "NODE_ENV=development nodemon --config ./nodemon.json",
     "tsc": ".\\node_modules\\.bin\\tsc",
-    "build": ".\\node_modules\\.bin\\tsc -p tsconfig.json --outDir dist",
+    "build": "rimraf dist && tsc -p tsconfig.json --outDir dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "husky": {
